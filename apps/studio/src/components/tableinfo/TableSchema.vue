@@ -203,6 +203,15 @@ export default Vue.extend({
           editor: vueEditor(NullableInputEditorVue)
         }),
         {
+          title: 'Comment',
+          field: 'comment',
+          editor: vueEditor(NullableInputEditorVue),
+          headerTooltip: "",
+          cellEdited: this.cellEdited,
+          formatter: this.cellFormatter,
+          editable: this.isCellEditable.bind(this, 'alterColumn'),
+        },
+        {
           title: 'Primary',
           field: 'primary',
           tooltip: false,
