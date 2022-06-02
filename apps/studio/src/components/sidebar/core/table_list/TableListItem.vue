@@ -6,7 +6,7 @@
       </span>
       <span class="item-wrapper flex flex-middle expand" @dblclick.prevent="openTable" @mousedown="selectItem">
         <table-icon :table="table" />
-        <span class="table-name truncate" :title="table.name">{{table.name}}</span>
+        <span class="table-name truncate" :title="table.comment?table.comment:table.name">{{table.name}}</span>
       </span>
       <span class="actions" v-bind:class="{'pinned': pinned}">
         <span v-if="!pinned" @mousedown.prevent.stop="pin" class="btn-fab pin" :title="'Pin'"><i class="bk-pin"></i></span>
@@ -16,7 +16,7 @@
     </a>
     <div v-if="showColumns" class="sub-items">
       <span v-bind:key="c.columnName" v-for="(c, i) in table.columns" class="sub-item">
-        <span class="title truncate" ref="title" @click="selectColumn(i)" :title="c.comment">{{c.columnName}}</span>
+        <span class="title truncate" ref="title" @click="selectColumn(i)" :title="c.comment?c.comment:c.columnName">{{c.columnName}}</span>
         <span class="badge" v-bind:class="c.dataType"><span>{{c.dataType}}</span></span>
       </span>
     </div>

@@ -111,7 +111,7 @@ async function getVersion(conn) {
 
 export async function listTables(conn) {
   const sql = `
-    SELECT table_name as name
+    SELECT table_name as name,table_comment as comment
     FROM information_schema.tables
     WHERE table_schema = database()
     AND table_type NOT LIKE '%VIEW%'
